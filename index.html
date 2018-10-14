@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Wiki</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <script src="node_modules/angular/angular.min.js"></script>
+    <script src="js/searchController.js"></script>
+</head>
+<body>
+
+<div class="container" ng-controller="searchCtrl">
+
+    <div class="jumbotron">
+
+        <h1 class="display-4">Search Wiki</h1>
+
+        <form class="form-inline">
+
+            <input class="form-control mr-sm-2" type="search" ng-model="search" placeholder="Pesquisar na Wikipedia">
+            <button class="btn btn-outline-success" type="submit" ng-click="loadSearch()">Pesquisar</button>
+            <button class="btn btn-outline-warning mx-2" ng-click="clearSearch()">Limpar pesquisas</button>
+
+
+        </form>
+
+    </div>
+
+    <div class="row">
+
+        <ul class="list-group list-group-flush">
+
+            <li class="list-group-item d-flex justify-content-center" ng-repeat="busca in listaBuscas">
+
+
+                <div class="col-md-8">
+
+                    <div class="card text-justify">
+
+                        <div class="card-header">Destaques</div>
+
+                        <img class="card-img-top" src={{busca.original.source}}>
+
+                        <div class="card-body">
+
+                            <h4 class="card-title">{{busca.title}}</h4>
+
+                            <p>{{busca.extract}}</p>
+
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+            </li>
+
+
+        </ul>
+
+
+    </div>
+
+
+</div>
+
+
+</body>
+</html>
